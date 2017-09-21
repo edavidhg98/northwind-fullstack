@@ -1,0 +1,52 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Territory</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="territory && territory._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="territory" type="text" class="form-control" name="id" [(ngModel)]="territory._id" disabled required>
+          </div>
+          
+          
+          <div class="col-12 form-group">
+  <label for="field_territoryDescription">Territory Description</label>
+  <input type="text" id="field_territoryDescription" *ngIf="territory" class="form-control" name="territoryDescription" [(ngModel)]="territory.territoryDescription" required  [ngClass]="{ 'is-invalid': (myForm.controls.territoryDescription?.dirty && myForm.controls.territoryDescription?.invalid) }" />
+  <input type="text" id="field_territoryDescription" *ngIf="!territory" class="form-control" name="territoryDescription" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.territoryDescription?.dirty && myForm.controls.territoryDescription?.invalid) }"/>
+      <div *ngIf="(myForm.controls.territoryDescription?.dirty && myForm.controls.territoryDescription?.invalid)">
+                <small [hidden]="!myForm.controls.territoryDescription?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+
+            <div class="col-12 form-group" *ngIf="regions">
+              <label for="field_region">Region</label>
+
+              <select *ngIf="!territory" class="form-control" name="idRegion" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="region._id" *ngFor="let region of regions">{{ region._id }}</option>
+              </select>
+
+              <select *ngIf="territory && territory.idRegion" class="form-control" name="idRegion" [(ngModel)]="territory.idRegion">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="region._id" *ngFor="let region of regions">{{ region._id }}</option>
+              </select>
+            </div>
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

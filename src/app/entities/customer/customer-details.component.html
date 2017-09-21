@@ -1,0 +1,44 @@
+<div *ngIf="customer" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Customer</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ customer._id }}</dd>
+
+  
+    <dt>Company Name</dt>
+    <dd>{{ customer.companyName }}</dd>
+
+    <dt>Contact Name</dt>
+    <dd>{{ customer.contactName }}</dd>
+
+    <dt>Contact Title</dt>
+    <dd>{{ customer.contactTitle }}</dd>
+
+    <dt>Address</dt>
+    <dd>{{ customer.address }}</dd>
+
+    <dt>City</dt>
+    <dd>{{ customer.city }}</dd>
+
+    <dt>Region</dt>
+    <dd>{{ customer.region }}</dd>
+
+    <dt>Postal Code</dt>
+    <dd>{{ customer.postalCode }}</dd>
+
+    <dt>Country</dt>
+    <dd>{{ customer.country }}</dd>
+
+    <dt>Phone</dt>
+    <dd>{{ customer.phone }}</dd>
+
+    <dt>Fax</dt>
+    <dd>{{ customer.fax }}</dd>
+
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-order-list [orders]="customer.orders"></app-order-list>
+  <app-customer-demographic-list [customerDemographics]="customer.customerDemographics"></app-customer-demographic-list>
+</div>

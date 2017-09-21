@@ -1,0 +1,16 @@
+<div *ngIf="customerDemographic" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Customer Demographic</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ customerDemographic._id }}</dd>
+
+  
+    <dt>Customer Desc</dt>
+    <dd>{{ customerDemographic.customerDesc }}</dd>
+
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-customer-list [customers]="customerDemographic.customers"></app-customer-list>
+</div>

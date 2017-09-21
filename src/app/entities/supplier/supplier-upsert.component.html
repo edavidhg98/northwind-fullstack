@@ -1,0 +1,139 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Supplier</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="supplier && supplier._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="supplier" type="text" class="form-control" name="id" [(ngModel)]="supplier._id" disabled required>
+          </div>
+          
+          <div class="col-6 form-group">
+  <label for="field_companyName">Company Name</label>
+  <input type="text" id="field_companyName" *ngIf="supplier" class="form-control" name="companyName" [(ngModel)]="supplier.companyName" required  [ngClass]="{ 'is-invalid': (myForm.controls.companyName?.dirty && myForm.controls.companyName?.invalid) }" />
+  <input type="text" id="field_companyName" *ngIf="!supplier" class="form-control" name="companyName" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.companyName?.dirty && myForm.controls.companyName?.invalid) }"/>
+      <div *ngIf="(myForm.controls.companyName?.dirty && myForm.controls.companyName?.invalid)">
+                <small [hidden]="!myForm.controls.companyName?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_contactName">Contact Name</label>
+  <input type="text" id="field_contactName" *ngIf="supplier" class="form-control" name="contactName" [(ngModel)]="supplier.contactName" required  [ngClass]="{ 'is-invalid': (myForm.controls.contactName?.dirty && myForm.controls.contactName?.invalid) }" />
+  <input type="text" id="field_contactName" *ngIf="!supplier" class="form-control" name="contactName" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.contactName?.dirty && myForm.controls.contactName?.invalid) }"/>
+      <div *ngIf="(myForm.controls.contactName?.dirty && myForm.controls.contactName?.invalid)">
+                <small [hidden]="!myForm.controls.contactName?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_contactTitle">Contact Title</label>
+  <input type="text" id="field_contactTitle" *ngIf="supplier" class="form-control" name="contactTitle" [(ngModel)]="supplier.contactTitle" required  [ngClass]="{ 'is-invalid': (myForm.controls.contactTitle?.dirty && myForm.controls.contactTitle?.invalid) }" />
+  <input type="text" id="field_contactTitle" *ngIf="!supplier" class="form-control" name="contactTitle" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.contactTitle?.dirty && myForm.controls.contactTitle?.invalid) }"/>
+      <div *ngIf="(myForm.controls.contactTitle?.dirty && myForm.controls.contactTitle?.invalid)">
+                <small [hidden]="!myForm.controls.contactTitle?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_address">Address</label>
+  <input type="text" id="field_address" *ngIf="supplier" class="form-control" name="address" [(ngModel)]="supplier.address" required  [ngClass]="{ 'is-invalid': (myForm.controls.address?.dirty && myForm.controls.address?.invalid) }" />
+  <input type="text" id="field_address" *ngIf="!supplier" class="form-control" name="address" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.address?.dirty && myForm.controls.address?.invalid) }"/>
+      <div *ngIf="(myForm.controls.address?.dirty && myForm.controls.address?.invalid)">
+                <small [hidden]="!myForm.controls.address?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_city">City</label>
+  <input type="text" id="field_city" *ngIf="supplier" class="form-control" name="city" [(ngModel)]="supplier.city" required  [ngClass]="{ 'is-invalid': (myForm.controls.city?.dirty && myForm.controls.city?.invalid) }" />
+  <input type="text" id="field_city" *ngIf="!supplier" class="form-control" name="city" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.city?.dirty && myForm.controls.city?.invalid) }"/>
+      <div *ngIf="(myForm.controls.city?.dirty && myForm.controls.city?.invalid)">
+                <small [hidden]="!myForm.controls.city?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_region">Region</label>
+  <input type="text" id="field_region" *ngIf="supplier" class="form-control" name="region" [(ngModel)]="supplier.region" required  [ngClass]="{ 'is-invalid': (myForm.controls.region?.dirty && myForm.controls.region?.invalid) }" />
+  <input type="text" id="field_region" *ngIf="!supplier" class="form-control" name="region" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.region?.dirty && myForm.controls.region?.invalid) }"/>
+      <div *ngIf="(myForm.controls.region?.dirty && myForm.controls.region?.invalid)">
+                <small [hidden]="!myForm.controls.region?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_postalCode">Postal Code</label>
+  <input type="text" id="field_postalCode" *ngIf="supplier" class="form-control" name="postalCode" [(ngModel)]="supplier.postalCode" required  [ngClass]="{ 'is-invalid': (myForm.controls.postalCode?.dirty && myForm.controls.postalCode?.invalid) }" />
+  <input type="text" id="field_postalCode" *ngIf="!supplier" class="form-control" name="postalCode" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.postalCode?.dirty && myForm.controls.postalCode?.invalid) }"/>
+      <div *ngIf="(myForm.controls.postalCode?.dirty && myForm.controls.postalCode?.invalid)">
+                <small [hidden]="!myForm.controls.postalCode?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_country">Country</label>
+  <input type="text" id="field_country" *ngIf="supplier" class="form-control" name="country" [(ngModel)]="supplier.country" required  [ngClass]="{ 'is-invalid': (myForm.controls.country?.dirty && myForm.controls.country?.invalid) }" />
+  <input type="text" id="field_country" *ngIf="!supplier" class="form-control" name="country" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.country?.dirty && myForm.controls.country?.invalid) }"/>
+      <div *ngIf="(myForm.controls.country?.dirty && myForm.controls.country?.invalid)">
+                <small [hidden]="!myForm.controls.country?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_phone">Phone</label>
+  <input type="text" id="field_phone" *ngIf="supplier" class="form-control" name="phone" [(ngModel)]="supplier.phone" required  [ngClass]="{ 'is-invalid': (myForm.controls.phone?.dirty && myForm.controls.phone?.invalid) }" />
+  <input type="text" id="field_phone" *ngIf="!supplier" class="form-control" name="phone" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.phone?.dirty && myForm.controls.phone?.invalid) }"/>
+      <div *ngIf="(myForm.controls.phone?.dirty && myForm.controls.phone?.invalid)">
+                <small [hidden]="!myForm.controls.phone?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_fax">Fax</label>
+  <input type="text" id="field_fax" *ngIf="supplier" class="form-control" name="fax" [(ngModel)]="supplier.fax" required  [ngClass]="{ 'is-invalid': (myForm.controls.fax?.dirty && myForm.controls.fax?.invalid) }" />
+  <input type="text" id="field_fax" *ngIf="!supplier" class="form-control" name="fax" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.fax?.dirty && myForm.controls.fax?.invalid) }"/>
+      <div *ngIf="(myForm.controls.fax?.dirty && myForm.controls.fax?.invalid)">
+                <small [hidden]="!myForm.controls.fax?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          
+          <div class="col-12 form-group">
+  <label for="field_homePage">Home Page</label>
+  <input type="text" id="field_homePage" *ngIf="supplier" class="form-control" name="homePage" [(ngModel)]="supplier.homePage" required  [ngClass]="{ 'is-invalid': (myForm.controls.homePage?.dirty && myForm.controls.homePage?.invalid) }" />
+  <input type="text" id="field_homePage" *ngIf="!supplier" class="form-control" name="homePage" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.homePage?.dirty && myForm.controls.homePage?.invalid) }"/>
+      <div *ngIf="(myForm.controls.homePage?.dirty && myForm.controls.homePage?.invalid)">
+                <small [hidden]="!myForm.controls.homePage?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

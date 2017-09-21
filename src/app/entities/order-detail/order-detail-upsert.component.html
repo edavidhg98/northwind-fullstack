@@ -1,0 +1,85 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Order Detail</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="orderDetail && orderDetail._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="orderDetail" type="text" class="form-control" name="id" [(ngModel)]="orderDetail._id" disabled required>
+          </div>
+          
+          
+          <div class="col-12 form-group">
+  <label for="field_unitPrice">Unit Price</label>
+  <input type="number" id="field_unitPrice" *ngIf="orderDetail" class="form-control" name="unitPrice" [(ngModel)]="orderDetail.unitPrice" required  [ngClass]="{ 'is-invalid': (myForm.controls.unitPrice?.dirty && myForm.controls.unitPrice?.invalid) }" />
+  <input type="number" id="field_unitPrice" *ngIf="!orderDetail" class="form-control" name="unitPrice" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.unitPrice?.dirty && myForm.controls.unitPrice?.invalid) }"/>
+      <div *ngIf="(myForm.controls.unitPrice?.dirty && myForm.controls.unitPrice?.invalid)">
+                <small [hidden]="!myForm.controls.unitPrice?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-12 form-group">
+  <label for="field_quantity">Quantity</label>
+  <input type="number" id="field_quantity" *ngIf="orderDetail" class="form-control" name="quantity" [(ngModel)]="orderDetail.quantity" required  [ngClass]="{ 'is-invalid': (myForm.controls.quantity?.dirty && myForm.controls.quantity?.invalid) }" />
+  <input type="number" id="field_quantity" *ngIf="!orderDetail" class="form-control" name="quantity" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.quantity?.dirty && myForm.controls.quantity?.invalid) }"/>
+      <div *ngIf="(myForm.controls.quantity?.dirty && myForm.controls.quantity?.invalid)">
+                <small [hidden]="!myForm.controls.quantity?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-12 form-group">
+  <label for="field_discount">Discount</label>
+  <input type="number" id="field_discount" *ngIf="orderDetail" class="form-control" name="discount" [(ngModel)]="orderDetail.discount" required  [ngClass]="{ 'is-invalid': (myForm.controls.discount?.dirty && myForm.controls.discount?.invalid) }" />
+  <input type="number" id="field_discount" *ngIf="!orderDetail" class="form-control" name="discount" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.discount?.dirty && myForm.controls.discount?.invalid) }"/>
+      <div *ngIf="(myForm.controls.discount?.dirty && myForm.controls.discount?.invalid)">
+                <small [hidden]="!myForm.controls.discount?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+
+            <div class="col-12 form-group" *ngIf="orders">
+              <label for="field_order">Order</label>
+
+              <select *ngIf="!orderDetail" class="form-control" name="idOrder" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="order._id" *ngFor="let order of orders">{{ order._id }}</option>
+              </select>
+
+              <select *ngIf="orderDetail && orderDetail.idOrder" class="form-control" name="idOrder" [(ngModel)]="orderDetail.idOrder">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="order._id" *ngFor="let order of orders">{{ order._id }}</option>
+              </select>
+            </div>
+            <div class="col-12 form-group" *ngIf="products">
+              <label for="field_product">Product</label>
+
+              <select *ngIf="!orderDetail" class="form-control" name="idProduct" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="product._id" *ngFor="let product of products">{{ product._id }}</option>
+              </select>
+
+              <select *ngIf="orderDetail && orderDetail.idProduct" class="form-control" name="idProduct" [(ngModel)]="orderDetail.idProduct">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="product._id" *ngFor="let product of products">{{ product._id }}</option>
+              </select>
+            </div>
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

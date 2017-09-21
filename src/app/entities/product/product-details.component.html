@@ -1,0 +1,42 @@
+<div *ngIf="product" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Product</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ product._id }}</dd>
+
+  
+    <dt>Discontinued</dt>
+    <dd>{{ product.discontinued }}</dd>
+
+    <dt>Product Name</dt>
+    <dd>{{ product.productName }}</dd>
+
+    <dt>Quantity Per Unit</dt>
+    <dd>{{ product.quantityPerUnit }}</dd>
+
+    <dt>Unit Price</dt>
+    <dd>{{ product.unitPrice }}</dd>
+
+    <dt>Units In Stock</dt>
+    <dd>{{ product.unitsInStock }}</dd>
+
+    <dt>Units On Order</dt>
+    <dd>{{ product.unitsOnOrder }}</dd>
+
+    <dt>Reorder Level</dt>
+    <dd>{{ product.reorderLevel }}</dd>
+
+    <dt>Category</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'category', product.category._id]">{{ product.category._id }}</a>
+    </dd>
+    <dt>Supplier</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'supplier', product.supplier._id]">{{ product.supplier._id }}</a>
+    </dd>
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-order-detail-list [orderDetails]="product.orderDetails"></app-order-detail-list>
+</div>

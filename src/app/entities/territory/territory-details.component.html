@@ -1,0 +1,20 @@
+<div *ngIf="territory" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Territory</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ territory._id }}</dd>
+
+  
+    <dt>Territory Description</dt>
+    <dd>{{ territory.territoryDescription }}</dd>
+
+    <dt>Region</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'region', territory.region._id]">{{ territory.region._id }}</a>
+    </dd>
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-employee-list [employees]="territory.employees"></app-employee-list>
+</div>

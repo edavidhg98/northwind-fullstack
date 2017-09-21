@@ -1,0 +1,156 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Order</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="order && order._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="order" type="text" class="form-control" name="id" [(ngModel)]="order._id" disabled required>
+          </div>
+          
+          <div class="col-6 form-group">
+  <label for="field_orderDate">Order Date</label>
+  <input type="date" id="field_orderDate" *ngIf="order" class="form-control" name="orderDate" [(ngModel)]="order.orderDate"  />
+  <input type="date" id="field_orderDate" *ngIf="!order" class="form-control" name="orderDate" ngModel />
+  </div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_requiredDate">Required Date</label>
+  <input type="date" id="field_requiredDate" *ngIf="order" class="form-control" name="requiredDate" [(ngModel)]="order.requiredDate"  />
+  <input type="date" id="field_requiredDate" *ngIf="!order" class="form-control" name="requiredDate" ngModel />
+  </div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shippedDate">Shipped Date</label>
+  <input type="date" id="field_shippedDate" *ngIf="order" class="form-control" name="shippedDate" [(ngModel)]="order.shippedDate"  />
+  <input type="date" id="field_shippedDate" *ngIf="!order" class="form-control" name="shippedDate" ngModel />
+  </div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_freight">Freight</label>
+  <input type="number" id="field_freight" *ngIf="order" class="form-control" name="freight" [(ngModel)]="order.freight"  />
+  <input type="number" id="field_freight" *ngIf="!order" class="form-control" name="freight" ngModel />
+  </div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shipName">Ship Name</label>
+  <input type="text" id="field_shipName" *ngIf="order" class="form-control" name="shipName" [(ngModel)]="order.shipName" required  [ngClass]="{ 'is-invalid': (myForm.controls.shipName?.dirty && myForm.controls.shipName?.invalid) }" />
+  <input type="text" id="field_shipName" *ngIf="!order" class="form-control" name="shipName" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.shipName?.dirty && myForm.controls.shipName?.invalid) }"/>
+      <div *ngIf="(myForm.controls.shipName?.dirty && myForm.controls.shipName?.invalid)">
+                <small [hidden]="!myForm.controls.shipName?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shipAddress">Ship Address</label>
+  <input type="text" id="field_shipAddress" *ngIf="order" class="form-control" name="shipAddress" [(ngModel)]="order.shipAddress" required  [ngClass]="{ 'is-invalid': (myForm.controls.shipAddress?.dirty && myForm.controls.shipAddress?.invalid) }" />
+  <input type="text" id="field_shipAddress" *ngIf="!order" class="form-control" name="shipAddress" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.shipAddress?.dirty && myForm.controls.shipAddress?.invalid) }"/>
+      <div *ngIf="(myForm.controls.shipAddress?.dirty && myForm.controls.shipAddress?.invalid)">
+                <small [hidden]="!myForm.controls.shipAddress?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shipCity">Ship City</label>
+  <input type="text" id="field_shipCity" *ngIf="order" class="form-control" name="shipCity" [(ngModel)]="order.shipCity" required  [ngClass]="{ 'is-invalid': (myForm.controls.shipCity?.dirty && myForm.controls.shipCity?.invalid) }" />
+  <input type="text" id="field_shipCity" *ngIf="!order" class="form-control" name="shipCity" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.shipCity?.dirty && myForm.controls.shipCity?.invalid) }"/>
+      <div *ngIf="(myForm.controls.shipCity?.dirty && myForm.controls.shipCity?.invalid)">
+                <small [hidden]="!myForm.controls.shipCity?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shipRegion">Ship Region</label>
+  <input type="text" id="field_shipRegion" *ngIf="order" class="form-control" name="shipRegion" [(ngModel)]="order.shipRegion" required  [ngClass]="{ 'is-invalid': (myForm.controls.shipRegion?.dirty && myForm.controls.shipRegion?.invalid) }" />
+  <input type="text" id="field_shipRegion" *ngIf="!order" class="form-control" name="shipRegion" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.shipRegion?.dirty && myForm.controls.shipRegion?.invalid) }"/>
+      <div *ngIf="(myForm.controls.shipRegion?.dirty && myForm.controls.shipRegion?.invalid)">
+                <small [hidden]="!myForm.controls.shipRegion?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shipPostalCode">Ship Postal Code</label>
+  <input type="text" id="field_shipPostalCode" *ngIf="order" class="form-control" name="shipPostalCode" [(ngModel)]="order.shipPostalCode" required  [ngClass]="{ 'is-invalid': (myForm.controls.shipPostalCode?.dirty && myForm.controls.shipPostalCode?.invalid) }" />
+  <input type="text" id="field_shipPostalCode" *ngIf="!order" class="form-control" name="shipPostalCode" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.shipPostalCode?.dirty && myForm.controls.shipPostalCode?.invalid) }"/>
+      <div *ngIf="(myForm.controls.shipPostalCode?.dirty && myForm.controls.shipPostalCode?.invalid)">
+                <small [hidden]="!myForm.controls.shipPostalCode?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-6 form-group">
+  <label for="field_shipCountry">Ship Country</label>
+  <input type="text" id="field_shipCountry" *ngIf="order" class="form-control" name="shipCountry" [(ngModel)]="order.shipCountry" required  [ngClass]="{ 'is-invalid': (myForm.controls.shipCountry?.dirty && myForm.controls.shipCountry?.invalid) }" />
+  <input type="text" id="field_shipCountry" *ngIf="!order" class="form-control" name="shipCountry" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.shipCountry?.dirty && myForm.controls.shipCountry?.invalid) }"/>
+      <div *ngIf="(myForm.controls.shipCountry?.dirty && myForm.controls.shipCountry?.invalid)">
+                <small [hidden]="!myForm.controls.shipCountry?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          
+
+            <div class="col-12 form-group" *ngIf="customers">
+              <label for="field_customer">Customer</label>
+
+              <select *ngIf="!order" class="form-control" name="idCustomer" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customer._id" *ngFor="let customer of customers">{{ customer._id }}</option>
+              </select>
+
+              <select *ngIf="order && order.idCustomer" class="form-control" name="idCustomer" [(ngModel)]="order.idCustomer">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customer._id" *ngFor="let customer of customers">{{ customer._id }}</option>
+              </select>
+            </div>
+            <div class="col-12 form-group" *ngIf="employees">
+              <label for="field_employee">Employee</label>
+
+              <select *ngIf="!order" class="form-control" name="idEmployee" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="employee._id" *ngFor="let employee of employees">{{ employee._id }}</option>
+              </select>
+
+              <select *ngIf="order && order.idEmployee" class="form-control" name="idEmployee" [(ngModel)]="order.idEmployee">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="employee._id" *ngFor="let employee of employees">{{ employee._id }}</option>
+              </select>
+            </div>
+            <div class="col-12 form-group" *ngIf="shippers">
+              <label for="field_shipper">Shipper</label>
+
+              <select *ngIf="!order" class="form-control" name="idShipper" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="shipper._id" *ngFor="let shipper of shippers">{{ shipper._id }}</option>
+              </select>
+
+              <select *ngIf="order && order.idShipper" class="form-control" name="idShipper" [(ngModel)]="order.idShipper">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="shipper._id" *ngFor="let shipper of shippers">{{ shipper._id }}</option>
+              </select>
+            </div>
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

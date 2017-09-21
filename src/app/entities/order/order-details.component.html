@@ -1,0 +1,55 @@
+<div *ngIf="order" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Order</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ order._id }}</dd>
+
+  
+    <dt>Order Date</dt>
+    <dd>{{ order.orderDate }}</dd>
+
+    <dt>Required Date</dt>
+    <dd>{{ order.requiredDate }}</dd>
+
+    <dt>Shipped Date</dt>
+    <dd>{{ order.shippedDate }}</dd>
+
+    <dt>Freight</dt>
+    <dd>{{ order.freight }}</dd>
+
+    <dt>Ship Name</dt>
+    <dd>{{ order.shipName }}</dd>
+
+    <dt>Ship Address</dt>
+    <dd>{{ order.shipAddress }}</dd>
+
+    <dt>Ship City</dt>
+    <dd>{{ order.shipCity }}</dd>
+
+    <dt>Ship Region</dt>
+    <dd>{{ order.shipRegion }}</dd>
+
+    <dt>Ship Postal Code</dt>
+    <dd>{{ order.shipPostalCode }}</dd>
+
+    <dt>Ship Country</dt>
+    <dd>{{ order.shipCountry }}</dd>
+
+    <dt>Customer</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'customer', order.customer._id]">{{ order.customer._id }}</a>
+    </dd>
+    <dt>Employee</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'employee', order.employee._id]">{{ order.employee._id }}</a>
+    </dd>
+    <dt>Shipper</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'shipper', order.shipper._id]">{{ order.shipper._id }}</a>
+    </dd>
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-order-detail-list [orderDetails]="order.orderDetails"></app-order-detail-list>
+</div>

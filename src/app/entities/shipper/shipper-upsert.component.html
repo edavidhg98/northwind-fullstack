@@ -1,0 +1,49 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Shipper</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="shipper && shipper._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="shipper" type="text" class="form-control" name="id" [(ngModel)]="shipper._id" disabled required>
+          </div>
+          
+          
+          <div class="col-12 form-group">
+  <label for="field_companyName">Company Name</label>
+  <input type="text" id="field_companyName" *ngIf="shipper" class="form-control" name="companyName" [(ngModel)]="shipper.companyName" required  [ngClass]="{ 'is-invalid': (myForm.controls.companyName?.dirty && myForm.controls.companyName?.invalid) }" />
+  <input type="text" id="field_companyName" *ngIf="!shipper" class="form-control" name="companyName" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.companyName?.dirty && myForm.controls.companyName?.invalid) }"/>
+      <div *ngIf="(myForm.controls.companyName?.dirty && myForm.controls.companyName?.invalid)">
+                <small [hidden]="!myForm.controls.companyName?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+          <div class="col-12 form-group">
+  <label for="field_phone">Phone</label>
+  <input type="text" id="field_phone" *ngIf="shipper" class="form-control" name="phone" [(ngModel)]="shipper.phone" required  [ngClass]="{ 'is-invalid': (myForm.controls.phone?.dirty && myForm.controls.phone?.invalid) }" />
+  <input type="text" id="field_phone" *ngIf="!shipper" class="form-control" name="phone" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.phone?.dirty && myForm.controls.phone?.invalid) }"/>
+      <div *ngIf="(myForm.controls.phone?.dirty && myForm.controls.phone?.invalid)">
+                <small [hidden]="!myForm.controls.phone?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Customer Demographic</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="customerDemographic && customerDemographic._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="customerDemographic" type="text" class="form-control" name="id" [(ngModel)]="customerDemographic._id" disabled required>
+          </div>
+          
+          
+          <div class="col-12 form-group">
+  <label for="field_customerDesc">Customer Desc</label>
+  <input type="text" id="field_customerDesc" *ngIf="customerDemographic" class="form-control" name="customerDesc" [(ngModel)]="customerDemographic.customerDesc" required  [ngClass]="{ 'is-invalid': (myForm.controls.customerDesc?.dirty && myForm.controls.customerDesc?.invalid) }" />
+  <input type="text" id="field_customerDesc" *ngIf="!customerDemographic" class="form-control" name="customerDesc" ngModel required  [ngClass]="{ 'is-invalid': (myForm.controls.customerDesc?.dirty && myForm.controls.customerDesc?.invalid) }"/>
+      <div *ngIf="(myForm.controls.customerDesc?.dirty && myForm.controls.customerDesc?.invalid)">
+                <small [hidden]="!myForm.controls.customerDesc?.errors?.required" class="form-text text-danger"></small>
+                    </div>
+</div>
+
+          
+
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

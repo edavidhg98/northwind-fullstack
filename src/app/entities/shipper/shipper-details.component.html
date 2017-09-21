@@ -1,0 +1,19 @@
+<div *ngIf="shipper" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Shipper</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ shipper._id }}</dd>
+
+  
+    <dt>Company Name</dt>
+    <dd>{{ shipper.companyName }}</dd>
+
+    <dt>Phone</dt>
+    <dd>{{ shipper.phone }}</dd>
+
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-order-list [orders]="shipper.orders"></app-order-list>
+</div>

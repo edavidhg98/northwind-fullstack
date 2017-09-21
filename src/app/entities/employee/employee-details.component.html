@@ -1,0 +1,64 @@
+<div *ngIf="employee" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Employee</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ employee._id }}</dd>
+
+  
+    <dt>Photo Path</dt>
+    <dd>{{ employee.photoPath }}</dd>
+
+    <dt>Last Name</dt>
+    <dd>{{ employee.lastName }}</dd>
+
+    <dt>First Name</dt>
+    <dd>{{ employee.firstName }}</dd>
+
+    <dt>Title</dt>
+    <dd>{{ employee.title }}</dd>
+
+    <dt>Title Of Courtesy</dt>
+    <dd>{{ employee.titleOfCourtesy }}</dd>
+
+    <dt>Birth Date</dt>
+    <dd>{{ employee.birthDate }}</dd>
+
+    <dt>Hire Date</dt>
+    <dd>{{ employee.hireDate }}</dd>
+
+    <dt>Address</dt>
+    <dd>{{ employee.address }}</dd>
+
+    <dt>City</dt>
+    <dd>{{ employee.city }}</dd>
+
+    <dt>Region</dt>
+    <dd>{{ employee.region }}</dd>
+
+    <dt>Postal Code</dt>
+    <dd>{{ employee.postalCode }}</dd>
+
+    <dt>Country</dt>
+    <dd>{{ employee.country }}</dd>
+
+    <dt>Home Phone</dt>
+    <dd>{{ employee.homePhone }}</dd>
+
+    <dt>Extension</dt>
+    <dd>{{ employee.extension }}</dd>
+
+    <dt>Notes</dt>
+    <dd>{{ employee.notes }}</dd>
+
+    <dt>Employee</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'employee', employee.employee._id]">{{ employee.employee._id }}</a>
+    </dd>
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-employee-list [employees]="employee.employees"></app-employee-list>
+  <app-order-list [orders]="employee.orders"></app-order-list>
+  <app-territory-list [territorys]="employee.territorys"></app-territory-list>
+</div>

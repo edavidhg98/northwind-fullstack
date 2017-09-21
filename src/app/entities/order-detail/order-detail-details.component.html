@@ -1,0 +1,29 @@
+<div *ngIf="orderDetail" class="container">
+  <h3 class="m-top-and-bottom-2">Order Detail</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ orderDetail._id }}</dd>
+
+  
+    <dt>Unit Price</dt>
+    <dd>{{ orderDetail.unitPrice }}</dd>
+
+    <dt>Quantity</dt>
+    <dd>{{ orderDetail.quantity }}</dd>
+
+    <dt>Discount</dt>
+    <dd>{{ orderDetail.discount }}</dd>
+
+    <dt>Order</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'order', orderDetail.order._id]">{{ orderDetail.order._id }}</a>
+    </dd>
+    <dt>Product</dt>
+    <dd>
+      <a [routerLink]="['/entities', 'product', orderDetail.product._id]">{{ orderDetail.product._id }}</a>
+    </dd>
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+</div>

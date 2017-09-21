@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Northwind Fullstack</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Inicio</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entidades</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" [routerLink]="['/entities/category']">Category</a>
+          <a class="dropdown-item" [routerLink]="['/entities/customer-demographic']">Customer Demographic</a>
+          <a class="dropdown-item" [routerLink]="['/entities/customer']">Customer</a>
+          <a class="dropdown-item" [routerLink]="['/entities/employee']">Employee</a>
+          <a class="dropdown-item" [routerLink]="['/entities/order-detail']">Order Detail</a>
+          <a class="dropdown-item" [routerLink]="['/entities/order']">Order</a>
+          <a class="dropdown-item" [routerLink]="['/entities/product']">Product</a>
+          <a class="dropdown-item" [routerLink]="['/entities/region']">Region</a>
+          <a class="dropdown-item" [routerLink]="['/entities/shipper']">Shipper</a>
+          <a class="dropdown-item" [routerLink]="['/entities/supplier']">Supplier</a>
+          <a class="dropdown-item" [routerLink]="['/entities/territory']">Territory</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
